@@ -1,6 +1,8 @@
 # Audio
 
-1. 单个音频播放的用法：
+API:
+
+1. 单个音频播放：
 
      new playAudio({files:"1.mp3",loop:false,pause:'true',callback:function(){}})
      
