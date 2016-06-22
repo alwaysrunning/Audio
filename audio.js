@@ -3,19 +3,20 @@
 		this.audio = opts;
 		this.typeAudio = "native";
 		this.state = 'init';
-        this.pause = opts.pause || false;
+        paused = opts.pause || false;
 
 		if(opts instanceof Object){
 			this.files = opts.files;
 	        this.callback = opts.callback;
 	        this.loop = opts.loop || false;
-	        this.pause = opts.pause || false
+	        paused= opts.pause || false
 	        this.audio = new Audio(this.files);	        
 		}
 		if(this.loop){
 			this.audio.loop = true
 		}
-        if(!this.pause){
+
+        if(!paused){
         	this.audio.play()
 
         }
@@ -39,7 +40,7 @@
 	}
 	_Audio.prototype.completed= function(){
 		if(!this.loop && this.callback)
-			this.callback()
+			this.callback.apply(this)
 		   this.state='completed'
 	}
 	_Audio.prototype.seekTo = function(milliansecond){
