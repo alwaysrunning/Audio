@@ -95,6 +95,6 @@
 		}
 	}
 
-	playAudio = _Audio
-	playAudioList = _AudioList
+	win.playAudio = _Audio
+	win.playAudioList = _AudioList
 })(window)
