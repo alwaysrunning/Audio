@@ -1,9 +1,10 @@
 (function(win,undefined){
 	function _Audio(opts){
+		var paused;
 		this.audio = opts;
 		this.typeAudio = "native";
 		this.state = 'init';
-        paused = opts.pause || false;
+
 
 		if(opts instanceof Object){
 			this.files = opts.files;
