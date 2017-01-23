@@ -1,25 +1,67 @@
-# Audio
+## How to use
 
-API:
+实例化对象
 
-1. 单个音频播放：
+```bash
+var audio = new _Audio({
+    file:"1.mp3",        // 文件路径
+    audioType:"cordova",  // h5播放(native) 和 底层播放方式(cordova) 两种播放方式。 安卓app里面只能用底层方法播放
+    getCurrentPos: true, // 获取当前播放进度
+    paused: true, // 初始化暂停
+    loop: true, // 是否循环
+    endCallback:function(){ alert(1111)}, // 播完之后回调
+    failback:function(){alert(403)} // 错误回调
+})
+```
 
-     var obj = new playAudio({
+播放
 
-  		files:"1.mp3",   //  音频源文件
+```bash
+audio.play()
+```
 
-  		loop:false,   //  是否循环音频
+暂停
 
-  		pause: false,  //  是否暂停播放音频
+```bash
+audio.pause()
+```
 
-  		callback:function(){   //  音频播放完之后的回调函数
+重播
 
-  			obj.destroy()
+```bash
+audio.restart("*****.mp3", function(){alert("重播")})
+```
 
-  		}
+获取当前文件的总长度
 
-  	})
-     
-2. 多个音频连续播放：
+```bash
+audio.duration
+```
 
-     new playAudioList(["1.mp3","2.mp3","3.mp3"],function(){})
+获取当前进度
+
+```bash
+audio.currentTime
+```
+
+设置当前进度
+
+```bash
+audio.seekTo(sec) 单位为秒
+```
+
+事件注册
+
+```bash
+audio.on("onPause", function(){alert("pause")})
+```
+
+删除当前文件
+
+```bash
+audio.destroy()
+```
+
+## License
+
+MIT
