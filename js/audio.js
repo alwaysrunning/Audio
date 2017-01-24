@@ -3,6 +3,7 @@ function _Audio(opts){
     this.audioType = opts.audioType || 'native';
     this.duration = -1;
     this.status = 'init';
+    this.progress = 0;
     this.currentTime = 0;
     this.loop = opts.loop || false;
     this.paused = opts.paused ||false;
